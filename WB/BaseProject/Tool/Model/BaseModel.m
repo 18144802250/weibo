@@ -1,15 +1,13 @@
 //
 //  BaseModel.m
-//  BaseProject
+//  我的微博
 //
-//  Created by jiyingxin on 15/10/21.
-//  Copyright © 2015年 Tarena. All rights reserved.
+//  Created by apple-jd28 on 15/10/24.
+//  Copyright © 2015年 apple-jd28. All rights reserved.
 //
 
 #import "BaseModel.h"
 
 @implementation BaseModel
-
-MJCodingImplementation
 
 @end
