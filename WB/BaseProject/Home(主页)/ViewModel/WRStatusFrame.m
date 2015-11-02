@@ -20,10 +20,10 @@
     [self setUpOriginalViewFrame];
     CGFloat toolBarY = CGRectGetMaxY(_originalViewFrame);
     
-    if (statuses.retweeted_status) {
-        [self setUPRetweetViewFrame];
-        toolBarY = CGRectGetMaxY(_retweetViewFrame);
-    }
+//    if (statuses.retweeted_status) {
+//        [self setUPRetweetViewFrame];
+//        toolBarY = CGRectGetMaxY(_retweetViewFrame);
+//    }
     
     CGFloat toolX = 0;
     CGFloat toolW = WRScreenW;
@@ -69,7 +69,7 @@
 //        _originalPhotosFrame = CGRectMake(picX, picY, <#CGFloat width#>, <#CGFloat height#>)
 //    }
     CGFloat originViewX = 0;
-    CGFloat originViewY = 10;
+    CGFloat originViewY = 0;
     CGFloat originViewW = WRScreenW;
     CGFloat originViewH = _cellHeight;
     _originalViewFrame = CGRectMake(originViewX, originViewY, originViewW, originViewH);

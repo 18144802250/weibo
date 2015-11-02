@@ -121,8 +121,8 @@
 		C34853281BE7617500C5C3B9 /* WRRetweetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRRetweetView.m; sourceTree = "<group>"; };
 		C34853291BE7617500C5C3B9 /* WRStatusToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRStatusToolView.h; sourceTree = "<group>"; };
 		C348532A1BE7617500C5C3B9 /* WRStatusToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRStatusToolView.m; sourceTree = "<group>"; };
-		C348532B1BE7617500C5C3B9 /* StatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusCell.h; sourceTree = "<group>"; };
-		C348532C1BE7617500C5C3B9 /* StatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusCell.m; sourceTree = "<group>"; };
+		C348532B1BE7617500C5C3B9 /* StatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusCell.h; path = ../StatusCell.h; sourceTree = "<group>"; };
+		C348532C1BE7617500C5C3B9 /* StatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatusCell.m; path = ../StatusCell.m; sourceTree = "<group>"; };
 		C348532D1BE7617500C5C3B9 /* WRCover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRCover.h; sourceTree = "<group>"; };
 		C348532E1BE7617500C5C3B9 /* WRCover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRCover.m; sourceTree = "<group>"; };
 		C348532F1BE7617500C5C3B9 /* WRPopMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRPopMenu.h; sourceTree = "<group>"; };
@@ -412,8 +412,6 @@
 			isa = PBXGroup;
 			children = (
 				C34853201BE7617500C5C3B9 /* Cell */,
-				C348532B1BE7617500C5C3B9 /* StatusCell.h */,
-				C348532C1BE7617500C5C3B9 /* StatusCell.m */,
 				C348532D1BE7617500C5C3B9 /* WRCover.h */,
 				C348532E1BE7617500C5C3B9 /* WRCover.m */,
 				C348532F1BE7617500C5C3B9 /* WRPopMenu.h */,
@@ -427,6 +425,8 @@
 		C34853201BE7617500C5C3B9 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				C348532B1BE7617500C5C3B9 /* StatusCell.h */,
+				C348532C1BE7617500C5C3B9 /* StatusCell.m */,
 				C34853211BE7617500C5C3B9 /* WROriginalView.h */,
 				C34853221BE7617500C5C3B9 /* WROriginalView.m */,
 				C34853231BE7617500C5C3B9 /* WRPhotosView.h */,

@@ -43,7 +43,6 @@
         
         [self setupAllChildView];
         
-        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
@@ -54,9 +53,9 @@
     [self.contentView addSubview:originalView];
     _originalView = originalView;
     
-    WRRetweetView *retweetView = [WRRetweetView new];
-    [self.contentView addSubview:retweetView];
-    _retweetView = retweetView;
+//    WRRetweetView *retweetView = [WRRetweetView new];
+//    [self.contentView addSubview:retweetView];
+//    _retweetView = retweetView;
     
     WRStatusToolView *toolView = [WRStatusToolView new];
     [self.contentView addSubview:toolView];
@@ -71,13 +70,13 @@
     _originalView.frame = statusFrame.originalViewFrame;
     _originalView.statusFrame = statusFrame;
     
-    if (statusFrame.statuses.retweeted_status) {
-        _retweetView.frame = statusFrame.retweetViewFrame;
-        _retweetView.statusFrame = statusFrame;
-        _retweetView.hidden = NO;
-    } else {
-        _retweetView.hidden = YES;
-    }
+//    if (statusFrame.statuses.retweeted_status) {
+//        _retweetView.frame = statusFrame.retweetViewFrame;
+//        _retweetView.statusFrame = statusFrame;
+//        _retweetView.hidden = NO;
+//    } else {
+//        _retweetView.hidden = YES;
+//    }
     
     
     _toolView.frame = statusFrame.toolBarFrame;

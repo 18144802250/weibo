@@ -67,7 +67,7 @@
 {
     _type = StatusParamTypeMore;
     if (self.dataArr.count) {
-        long long maxId = [[[self.dataArr lastObject] idstr] longLongValue] -2;
+        long long maxId = [[[self.dataArr lastObject] idstr] longLongValue] - 1;
         _idStr = [NSString stringWithFormat:@"%lld",maxId];
     }
 

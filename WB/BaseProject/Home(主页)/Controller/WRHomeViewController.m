@@ -178,17 +178,31 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+- (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
+{
     return self.statusVM.rowNumber;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 9;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     StatusCell *cell = [StatusCell CellWithTableView:tableView];
     
-    WRStatusFrame *statusFrame = self.statusVM.frameArr[indexPath.row];
+    WRStatusFrame *statusFrame = self.statusVM.frameArr[indexPath.section];
     
     cell.statusFrame = statusFrame;
     
@@ -197,8 +211,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    WRStatusFrame *statusF = self.statusVM.frameArr[indexPath.row];
+    WRStatusFrame *statusF = self.statusVM.frameArr[indexPath.section];
     return statusF.cellHeight;
+
 }
 
 #pragma mark -代理方法
