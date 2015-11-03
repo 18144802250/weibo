@@ -55,6 +55,7 @@
     
     // 配图
     WRPhotosView *photosView = [[WRPhotosView alloc] init];
+    photosView.backgroundColor = [UIColor redColor];
     [self addSubview:photosView];
     _photosView = photosView;
 }
@@ -88,7 +89,8 @@
     // 正文
     _textView.frame = _retFrame.retweetTextFrame;
     
-//    _photosView.frame = _statusFrame.retweetPhotosFrame;
+    //配图
+    _photosView.frame = _retFrame.retweetPhotosFrame;
 }
 
 

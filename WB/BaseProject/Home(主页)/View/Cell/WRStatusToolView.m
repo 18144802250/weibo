@@ -130,7 +130,6 @@
     if (count) {
         if (count > 10000) {
             title = [NSString stringWithFormat:@"%.1lf万",count/10000];
-            
         } else {
             title = [NSString stringWithFormat:@"%.1lf",count];
         }

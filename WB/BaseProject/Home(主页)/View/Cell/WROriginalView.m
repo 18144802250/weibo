@@ -86,10 +86,11 @@
     [self addSubview:textView];
     _textView = textView;
     
-    // 配图
-//    WRPhotosView *photosView = [[WRPhotosView alloc] init];
-//    [self addSubview:photosView];
-//    _photosView = photosView;
+//     配图
+    WRPhotosView *photosView = [[WRPhotosView alloc] init];
+    photosView.backgroundColor = [UIColor redColor];
+    [self addSubview:photosView];
+    _photosView = photosView;
     
 }
 
@@ -159,6 +160,9 @@
     _sourceView.frame = CGRectMake(sourceX, sourceY, sourceSize.width, sourceSize.height);
     // 正文
     _textView.frame = _originFrame.originalTextFrame;
+    
+    //配图
+    _photosView.frame = _originFrame.originalPhotosFrame;
 }
 
 @end

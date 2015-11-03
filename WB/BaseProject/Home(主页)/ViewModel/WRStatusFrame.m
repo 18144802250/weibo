@@ -62,12 +62,13 @@
 
     _cellHeight = CGRectGetMaxY(_originalTextFrame) + WRStatusCellMargin;
 //     配图Frame
-//    if (_statuses.pic_urls) {
-//        CGFloat picX = WRStatusCellMargin;
-//        CGFloat picY = CGRectGetMaxY(_originalTextFrame) + WRStatusCellMargin;
-//        CGSize picSize = [self sizeWithPicturesCount:_statuses.pic_urls.count];
-//        _originalPhotosFrame = CGRectMake(picX, picY, <#CGFloat width#>, <#CGFloat height#>)
-//    }
+    if (_statuses.pic_urls) {
+        CGFloat picX = WRStatusCellMargin;
+        CGFloat picY = CGRectGetMaxY(_originalTextFrame) + WRStatusCellMargin;
+        CGSize picSize = [self sizeWithPicturesCount:(int)_statuses.pic_urls.count];
+        _originalPhotosFrame = CGRectMake(picX, picY, picSize.width, picSize.height);
+        _cellHeight = CGRectGetMaxY(_originalPhotosFrame) + WRStatusCellMargin;
+    }
     CGFloat originViewX = 0;
     CGFloat originViewY = 0;
     CGFloat originViewW = WRScreenW;
@@ -76,12 +77,20 @@
     
 }
 
-//- (CGSize)sizeWithPicturesCount:(NSInteger)count
-//{
-////    总行数
-//    int cols = round(count/3.0);
-//    int rows =
-//}
+- (CGSize)sizeWithPicturesCount:(int)count
+{
+//    总列数
+    int cols = count==4?2:3;
+    //总行数
+    int rows = (count - 1) / cols + 1;
+    
+    CGFloat picWH = 75;
+    
+    CGFloat w = cols * picWH + (cols - 1)*WRStatusCellMargin;
+    CGFloat h = rows * picWH + (rows - 1)*WRStatusCellMargin;
+    
+    return CGSizeMake(w, h);
+}
 
 #pragma mark - 设置转发微博的Frame
 - (void)setUPRetweetViewFrame
@@ -102,7 +111,11 @@
     CGFloat retH = CGRectGetMaxY(_retweetTextFrame) + WRStatusCellMargin;
     // 配图
     if (retStatus.pic_urls) {
-        
+        CGFloat picX = WRStatusCellMargin;
+        CGFloat picY = retH;
+        CGSize picSize = [self sizeWithPicturesCount:(int)retStatus.pic_urls.count];
+        _retweetPhotosFrame = CGRectMake(picX, picY, picSize.width, picSize.height);
+        retH = CGRectGetMaxY(_retweetPhotosFrame) + WRStatusCellMargin;
     }
     
     //转发微博的Frame
