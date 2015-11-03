@@ -37,7 +37,7 @@
 - (void)addPhotos
 {
     for (int i = 0; i < 9; i ++) {
-        UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"new_feature_1"]];
+        UIImageView *iv = [UIImageView new];
         
         iv.contentMode = UIViewContentModeScaleAspectFill;
         
@@ -91,6 +91,7 @@
         iconX = iconWH * (col + margin);
         iconY = iconWH * (row + margin);
         UIImageView *iv = self.allPhotos[i];
+        iv.backgroundColor = [UIColor whiteColor];
         iv.frame = CGRectMake(iconX, iconY, iconWH, iconWH);
     }
 }
