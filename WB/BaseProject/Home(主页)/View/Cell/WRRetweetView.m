@@ -31,7 +31,7 @@
         
         [self setupAllChildView];
         
-        self.backgroundColor = [UIColor lightGrayColor];
+        self.image = [UIImage imageWithStretchableName:@"timeline_retweet_background"];
     
     }
     return self;
@@ -41,7 +41,6 @@
 {
     // 昵称
     UILabel *nameView = [[UILabel alloc] init];
-    nameView.textColor = [UIColor blueColor];
     nameView.font = [UIFont systemFontOfSize:WRNameFontSize];
     [self addSubview:nameView];
     _nameView = nameView;
@@ -51,7 +50,6 @@
     UILabel *textView = [[UILabel alloc] init];
     textView.font = [UIFont systemFontOfSize:WRTextFontSize];
     textView.numberOfLines = 0;
-    textView.textColor = [UIColor blackColor];
     [self addSubview:textView];
     _textView = textView;
     
@@ -64,7 +62,7 @@
 - (void)setRetFrame:(WRStatusFrame *)retFrame
 {
     _retFrame = retFrame;
-    NSLog(@"retName3 = %@",retFrame.statuses.retweetName);
+
     [self setUpData];
     
     [self setUpFrame];
@@ -78,14 +76,12 @@
 
     // 正文
     _textView.text = retStatus.text;
-    NSLog(@"retName4 = %@",_retFrame.statuses.retweetName);
     
 //    _photosView.photos = retStatus.pic_urls;
 }
 
 - (void)setUpFrame
 {
-    NSLog(@"retName5 = %@",_retFrame.statuses.retweetName);
     // 昵称
     _nameView.frame = _retFrame.retweetNameFrame;
     

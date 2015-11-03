@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class WRStatusFrame;
-@interface WRStatusToolView : UIView
+@interface WRStatusToolView : UIImageView
 
 
 @property (nonatomic, strong) WRStatusFrame *toolFrame;

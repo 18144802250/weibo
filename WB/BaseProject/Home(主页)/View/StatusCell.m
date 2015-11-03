@@ -61,7 +61,6 @@
     
     WRStatusToolView *toolView = [WRStatusToolView new];
     [self.contentView addSubview:toolView];
-    toolView.backgroundColor = [UIColor blueColor];
     _toolView = toolView;
 }
 
@@ -72,12 +71,7 @@
     _originalView.frame = statusFrame.originalViewFrame;
     _originalView.originFrame = statusFrame;
     
-    NSLog(@"retName1 = %@",statusFrame.statuses.retweetName);
-    
     if (statusFrame.statuses.retweeted_status) {
-        
-        NSLog(@"retName2 = %@",statusFrame.statuses.retweetName);
-        
         _retweetView.retFrame = statusFrame;
         _retweetView.frame = statusFrame.retweetViewFrame;
         _retweetView.hidden = NO;
