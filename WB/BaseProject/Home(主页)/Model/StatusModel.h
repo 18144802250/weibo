@@ -98,6 +98,6 @@
 
 @interface StatusPicUrlsModel : BaseModel
 
-@property (nonatomic, strong) NSString *thumbnailPic;
+@property (nonatomic, strong) NSURL *thumbnailPic;
 
 @end

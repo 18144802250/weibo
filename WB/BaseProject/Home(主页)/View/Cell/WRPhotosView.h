@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class WRStatusFrame;
 @interface WRPhotosView : UIView
 
-@property (nonatomic, strong) NSArray *photos;
+@property (nonatomic, strong) NSArray *photosUrl;
 
-@property (nonatomic, strong) WRStatusFrame *statusFrame;
 @end

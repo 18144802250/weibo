@@ -30,7 +30,7 @@
 + (NSDictionary *)objectClassInArray
 {
     return @{
-             @"picUrls":[StatusPicUrlsModel class],
+             @"pic_urls":[StatusPicUrlsModel class],
              };
 }
 
@@ -67,6 +67,10 @@
 
 - (void)setSource:(NSString *)source
 {
+    if (!source || [source isEqualToString:@""]) {
+        _source = source;
+        return;
+    }
     NSRange range = [source rangeOfString:@">"];
     source = [source substringFromIndex:range.location + range.length];
     range = [source rangeOfString:@"<"];
@@ -84,7 +88,10 @@
 
 @implementation StatusPicUrlsModel
 
-
++ (NSDictionary*)replacedKeyFromPropertyName
+{
+    return @{@"thumbnailPic":@"thumbnail_pic"};
+}
 
 @end
 

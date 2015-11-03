@@ -62,7 +62,7 @@
 
     _cellHeight = CGRectGetMaxY(_originalTextFrame) + WRStatusCellMargin;
 //     配图Frame
-    if (_statuses.pic_urls) {
+    if (_statuses.pic_urls.count) {
         CGFloat picX = WRStatusCellMargin;
         CGFloat picY = CGRectGetMaxY(_originalTextFrame) + WRStatusCellMargin;
         CGSize picSize = [self sizeWithPicturesCount:(int)_statuses.pic_urls.count];
@@ -110,7 +110,7 @@
     
     CGFloat retH = CGRectGetMaxY(_retweetTextFrame) + WRStatusCellMargin;
     // 配图
-    if (retStatus.pic_urls) {
+    if (retStatus.pic_urls.count) {
         CGFloat picX = WRStatusCellMargin;
         CGFloat picY = retH;
         CGSize picSize = [self sizeWithPicturesCount:(int)retStatus.pic_urls.count];
