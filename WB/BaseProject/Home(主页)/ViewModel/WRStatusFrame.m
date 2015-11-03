@@ -90,7 +90,7 @@
     // 昵称Frame
     CGFloat retNameX = WRStatusCellMargin;
     CGFloat retNameY = WRStatusCellMargin;
-    CGSize retNameSize = [retStatus.retweetName textSizeWithFontSize:WRNameFontSize contraintSize:WRNameConstraintSize];
+    CGSize retNameSize = [_statuses.retweetName textSizeWithFontSize:WRNameFontSize contraintSize:WRNameConstraintSize];
     _retweetNameFrame = CGRectMake(retNameX, retNameY, retNameSize.width, retNameSize.height);
     // 正文Frame
     CGFloat retTextX = retNameX;

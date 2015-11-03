@@ -21,7 +21,7 @@
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     //    检测网络状态
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        DDLogVerbose(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
+//        DDLogVerbose(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
         switch (status) {
             case AFNetworkReachabilityStatusReachableViaWWAN:
             case AFNetworkReachabilityStatusReachableViaWiFi:

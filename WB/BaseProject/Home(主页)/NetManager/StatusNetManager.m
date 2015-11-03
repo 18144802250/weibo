@@ -33,7 +33,6 @@
 //            NSLog(@"写入失败");
 //        }
         complete([StatusModel objectWithKeyValues:responseObj],error);
-        NSLog(@"111");
     }];
 }
 

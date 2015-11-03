@@ -67,8 +67,9 @@
 
 - (void)setSource:(NSString *)source
 {
-
+    NSLog(@"source = %@",source);
     NSRange range = [source rangeOfString:@">"];
+    NSLog(@"range = %@",NSStringFromRange(range));
     source = [source substringFromIndex:range.location + range.length];
     range = [source rangeOfString:@"<"];
     source = [source substringToIndex:range.location];
@@ -79,6 +80,7 @@
 {
     _retweeted_status = retweeted_status;
     _retweetName = [NSString stringWithFormat:@"@%@",retweeted_status.user.name];
+    NSLog(@"retweetName = %@",_retweetName);
 }
 
 @end
