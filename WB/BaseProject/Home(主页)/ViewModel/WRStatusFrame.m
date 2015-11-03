@@ -110,7 +110,7 @@
     CGFloat retY = CGRectGetMaxY(_originalViewFrame);
     CGFloat retW = WRScreenW;
     
-    _originalViewFrame = CGRectMake(retX, retY, retW, retH);
+    _retweetViewFrame = CGRectMake(retX, retY, retW, retH);
     
 }
 

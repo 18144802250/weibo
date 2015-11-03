@@ -11,7 +11,6 @@
 @class WRStatusFrame;
 @interface WRRetweetView : UIImageView
 
-
-@property (nonatomic, strong) WRStatusFrame *statusFrame;
+@property (nonatomic, strong) WRStatusFrame *retFrame;
 
 @end

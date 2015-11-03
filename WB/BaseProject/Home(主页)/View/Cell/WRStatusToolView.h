@@ -12,6 +12,6 @@
 @interface WRStatusToolView : UIView
 
 
-@property (nonatomic, strong) WRStatusFrame *statusFrame;
+@property (nonatomic, strong) WRStatusFrame *toolFrame;
 
 @end

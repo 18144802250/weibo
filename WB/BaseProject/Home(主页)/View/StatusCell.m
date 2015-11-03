@@ -31,7 +31,7 @@
     static NSString *identify = @"Cell";
     StatusCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
     if (!cell) {
-        cell = [[StatusCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
+        cell = [[StatusCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identify];
         
     }
     return cell;
@@ -43,6 +43,8 @@
         
         [self setupAllChildView];
         
+        self.backgroundColor = [UIColor clearColor];
+        
     }
     return self;
 }
@@ -53,9 +55,9 @@
     [self.contentView addSubview:originalView];
     _originalView = originalView;
     
-//    WRRetweetView *retweetView = [WRRetweetView new];
-//    [self.contentView addSubview:retweetView];
-//    _retweetView = retweetView;
+    WRRetweetView *retweetView = [WRRetweetView new];
+    [self.contentView addSubview:retweetView];
+    _retweetView = retweetView;
     
     WRStatusToolView *toolView = [WRStatusToolView new];
     [self.contentView addSubview:toolView];
@@ -67,14 +69,17 @@
 {
     _statusFrame = statusFrame;
     
-    NSLog(@"originRect = %@ \n retRect = %@ toolRect = %@",NSStringFromCGRect(statusFrame.originalViewFrame),NSStringFromCGRect(statusFrame.retweetViewFrame),NSStringFromCGRect(statusFrame.toolBarFrame));
-    
     _originalView.frame = statusFrame.originalViewFrame;
-    _originalView.statusFrame = statusFrame;
+    _originalView.originFrame = statusFrame;
+    
+    NSLog(@"retName1 = %@",statusFrame.statuses.retweetName);
     
     if (statusFrame.statuses.retweeted_status) {
+        
+        NSLog(@"retName2 = %@",statusFrame.statuses.retweetName);
+        
+        _retweetView.retFrame = statusFrame;
         _retweetView.frame = statusFrame.retweetViewFrame;
-        _retweetView.statusFrame = statusFrame;
         _retweetView.hidden = NO;
     } else {
         _retweetView.hidden = YES;
@@ -82,7 +87,7 @@
     
     
     _toolView.frame = statusFrame.toolBarFrame;
-    _toolView.statusFrame = statusFrame;
+    _toolView.toolFrame = statusFrame;
 }
 
 

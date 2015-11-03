@@ -41,6 +41,7 @@
         
         [self setupAllChildView];
         
+        self.userInteractionEnabled = YES;
         self.image = [UIImage imageWithStretchableName:@"timeline_card_top_background"];
     }
     return self;
@@ -92,9 +93,9 @@
     
 }
 
-- (void)setStatusFrame:(WRStatusFrame *)statusFrame
+- (void)setOriginFrame:(WRStatusFrame *)originFrame
 {
-    _statusFrame = statusFrame;
+    _originFrame = originFrame;
     
     
     [self setUpData];
@@ -104,7 +105,7 @@
 
 - (void)setUpData
 {
-    StatusStatusesModel *status = _statusFrame.statuses;
+    StatusStatusesModel *status = _originFrame.statuses;
     // 头像
     [_iconView sd_setImageWithURL:status.user.profile_image_url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
     // 昵称
@@ -131,33 +132,33 @@
 - (void)setUpFrame
 {
     // 头像
-    _iconView.frame = _statusFrame.originalIconFrame;
+    _iconView.frame = _originFrame.originalIconFrame;
     // 昵称
-    _nameView.frame = _statusFrame.originalNameFrame;
+    _nameView.frame = _originFrame.originalNameFrame;
     
     // vip
-    if (_statusFrame.statuses.user.vip) { // 是vip
+    if (_originFrame.statuses.user.vip) { // 是vip
         
         _vipView.hidden = NO;
-        _vipView.frame = _statusFrame.originalVipFrame;
+        _vipView.frame = _originFrame.originalVipFrame;
         
     }else{
         _vipView.hidden = YES;
         
     }
     //时间
-    CGFloat timeX = CGRectGetMaxX(_statusFrame.originalIconFrame) + WRStatusCellMargin;
-    CGFloat timeY = CGRectGetMaxY(_statusFrame.originalNameFrame) + WRStatusCellMargin * 0.5;
-    CGSize timeSize = [_statusFrame.statuses.created_at textSizeWithFontSize:WRTimeFontSize contraintSize:WRNameConstraintSize];
+    CGFloat timeX = CGRectGetMaxX(_originFrame.originalIconFrame) + WRStatusCellMargin;
+    CGFloat timeY = CGRectGetMaxY(_originFrame.originalNameFrame) + WRStatusCellMargin * 0.5;
+    CGSize timeSize = [_originFrame.statuses.created_at textSizeWithFontSize:WRTimeFontSize contraintSize:WRNameConstraintSize];
     _timeView.frame = CGRectMake(timeX, timeY, timeSize.width, timeSize.height);
     
     // 来源
     CGFloat sourceX = CGRectGetMaxX(_timeView.frame) + WRStatusCellMargin;
     CGFloat sourceY = timeY;
-    CGSize sourceSize = [_statusFrame.statuses.source textSizeWithFontSize:WRTimeFontSize contraintSize:WRNameConstraintSize];
+    CGSize sourceSize = [_originFrame.statuses.source textSizeWithFontSize:WRTimeFontSize contraintSize:WRNameConstraintSize];
     _sourceView.frame = CGRectMake(sourceX, sourceY, sourceSize.width, sourceSize.height);
     // 正文
-    _textView.frame = _statusFrame.originalTextFrame;
+    _textView.frame = _originFrame.originalTextFrame;
 }
 
 @end

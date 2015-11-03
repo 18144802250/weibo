@@ -28,4 +28,9 @@
     
 }
 
+- (void)setToolFrame:(WRStatusFrame *)toolFrame
+{
+    NSLog(@"11111");
+}
+
 @end

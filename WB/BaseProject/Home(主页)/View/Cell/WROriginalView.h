@@ -11,7 +11,7 @@
 @class WRStatusFrame;
 @interface WROriginalView : UIImageView
 
-@property (nonatomic, strong) WRStatusFrame *statusFrame;
+@property (nonatomic, strong) WRStatusFrame *originFrame;
 
 
 @end
