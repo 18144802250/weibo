@@ -67,16 +67,18 @@
 {
     _statusFrame = statusFrame;
     
+    NSLog(@"originRect = %@ \n retRect = %@ toolRect = %@",NSStringFromCGRect(statusFrame.originalViewFrame),NSStringFromCGRect(statusFrame.retweetViewFrame),NSStringFromCGRect(statusFrame.toolBarFrame));
+    
     _originalView.frame = statusFrame.originalViewFrame;
     _originalView.statusFrame = statusFrame;
     
-//    if (statusFrame.statuses.retweeted_status) {
-//        _retweetView.frame = statusFrame.retweetViewFrame;
-//        _retweetView.statusFrame = statusFrame;
-//        _retweetView.hidden = NO;
-//    } else {
-//        _retweetView.hidden = YES;
-//    }
+    if (statusFrame.statuses.retweeted_status) {
+        _retweetView.frame = statusFrame.retweetViewFrame;
+        _retweetView.statusFrame = statusFrame;
+        _retweetView.hidden = NO;
+    } else {
+        _retweetView.hidden = YES;
+    }
     
     
     _toolView.frame = statusFrame.toolBarFrame;

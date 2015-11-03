@@ -72,7 +72,7 @@
     StatusStatusesModel *retStatus = _statusFrame.statuses.retweeted_status;
     // 昵称
     
-    _nameView.text = retStatus.user.name;
+    _nameView.text = retStatus.retweetName;
 
     // 正文
     _textView.text = retStatus.text;

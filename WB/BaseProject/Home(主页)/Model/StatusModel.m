@@ -78,7 +78,7 @@
 - (void)setRetweeted_status:(StatusStatusesModel *)retweeted_status
 {
     _retweeted_status = retweeted_status;
-    _retweetName = [NSString stringWithFormat:@"%@",retweeted_status.user.name];
+    _retweetName = [NSString stringWithFormat:@"@%@",retweeted_status.user.name];
 }
 
 @end

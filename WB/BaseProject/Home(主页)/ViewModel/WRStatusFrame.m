@@ -20,10 +20,10 @@
     [self setUpOriginalViewFrame];
     CGFloat toolBarY = CGRectGetMaxY(_originalViewFrame);
     
-//    if (statuses.retweeted_status) {
-//        [self setUPRetweetViewFrame];
-//        toolBarY = CGRectGetMaxY(_retweetViewFrame);
-//    }
+    if (statuses.retweeted_status) {
+        [self setUPRetweetViewFrame];
+        toolBarY = CGRectGetMaxY(_retweetViewFrame);
+    }
     
     CGFloat toolX = 0;
     CGFloat toolW = WRScreenW;
@@ -89,8 +89,8 @@
     StatusStatusesModel *retStatus = _statuses.retweeted_status;
     // 昵称Frame
     CGFloat retNameX = WRStatusCellMargin;
-    CGFloat retNameY = _cellHeight + WRStatusCellMargin;
-    CGSize retNameSize = [retStatus.user.name textSizeWithFontSize:WRNameFontSize contraintSize:WRNameConstraintSize];
+    CGFloat retNameY = WRStatusCellMargin;
+    CGSize retNameSize = [retStatus.retweetName textSizeWithFontSize:WRNameFontSize contraintSize:WRNameConstraintSize];
     _retweetNameFrame = CGRectMake(retNameX, retNameY, retNameSize.width, retNameSize.height);
     // 正文Frame
     CGFloat retTextX = retNameX;
@@ -98,6 +98,8 @@
     CGSize retTextSize = [retStatus.text textSizeWithFontSize:WRTextFontSize contraintSize:WRTextConstraintSize];
     _retweetTextFrame = CGRectMake(retTextX, retTextY, retTextSize.width, retTextSize.height);
     
+    
+    CGFloat retH = CGRectGetMaxY(_retweetTextFrame) + WRStatusCellMargin;
     // 配图
     if (retStatus.pic_urls) {
         
@@ -107,7 +109,7 @@
     CGFloat retX = 0;
     CGFloat retY = CGRectGetMaxY(_originalViewFrame);
     CGFloat retW = WRScreenW;
-    CGFloat retH = CGRectGetMaxY(_retweetTextFrame) - retY + WRStatusCellMargin;
+    
     _originalViewFrame = CGRectMake(retX, retY, retW, retH);
     
 }
