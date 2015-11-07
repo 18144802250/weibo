@@ -19,6 +19,8 @@
 #import "WRUserTool.h"
 
 
+static WRTabBarController *tbC = nil;
+
 @interface WRTabBarController () <WRTabBarDelegate>
 
 @property (nonatomic, strong) NSMutableArray *items;
@@ -26,6 +28,8 @@
 @property (nonatomic, strong) WRHomeViewController *homeVC;
 @property (nonatomic, strong) WRMessageViewController *messageVC;
 @property (nonatomic, strong) WRProfileViewController *profileVC;
+
+
 
 @end
 
@@ -47,7 +51,7 @@
     
     [self setUpTabbar];
     
-    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(unreadMessage) userInfo:nil repeats:YES];
+//    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(unreadMessage) userInfo:nil repeats:YES];
 }
 
 - (void)unreadMessage
@@ -59,7 +63,7 @@
         _homeVC.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",result.status];
         
         [UIApplication sharedApplication].applicationIconBadgeNumber = result.totalCount;
-        
+        _unread = result.status;
     }];
 }
 
@@ -82,6 +86,11 @@
 #pragma mark - WRTabBar代理方法
 - (void)tabBar:(WRTabBar *)tabBar didClickButton:(NSInteger)index
 {
+    
+    if (index == self.selectedIndex && index == 0) {
+        [_homeVC refreshHome];
+    }
+    
     self.selectedIndex = index;
 }
 
@@ -139,6 +148,18 @@
             [item removeFromSuperview];
         }
     }
+}
+
+
+
+#pragma mark -获取唯一的tabbarController  用于使用改控制器的值
++ (instancetype)defaultWRTabBarController
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        tbC = [WRTabBarController new];
+    });
+    return tbC;
 }
 
 @end

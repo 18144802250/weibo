@@ -29,6 +29,8 @@
 //用于存放全局宏定义 或者 静态字符串
 #import "Constants.h"
 
+#import "WRTabBarController.h"
+
 #import "UIView+Extension.h"
 #import "UIImage+Extension.h"
 #import "UIImageView+WebCache.h"

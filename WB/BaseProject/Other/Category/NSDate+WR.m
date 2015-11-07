@@ -67,8 +67,8 @@
 - (NSDateComponents *)intervalFromNow
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    int unit = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;;
-    return [calendar components:unit fromDate:[NSDate date] toDate:self options:0];
+    int unit = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    return [calendar components:unit fromDate:self toDate:[NSDate date] options:0];
 }
 
 

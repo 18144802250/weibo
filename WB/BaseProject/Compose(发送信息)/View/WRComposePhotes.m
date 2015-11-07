@@ -16,7 +16,8 @@
 - (void)setPhoto:(UIImage *)photo
 {
     _photo = photo;
-    UIImageView *iv = [[UIImageView alloc] initWithImage:photo];
+    UIImageView *iv = [[UIImageView alloc] init];
+    iv.image = photo;
     [self addSubview:iv];
 }
 
@@ -25,8 +26,7 @@
     [super layoutSubviews];
     
     int count = (int)self.subviews.count;
-    
-    NSLog(@"%d",count);
+
     
     CGFloat margin = 10;
     CGFloat x = 0;
@@ -35,15 +35,15 @@
     
     for (int i = 0; i < count; i++) {
         
-        UIButton *btn = self.subviews[i];
+        UIImageView *iv = self.subviews[i];
         
-        int col = count % 3;
-        int row = count / 3;
+        int col = i % 3;
+        int row = i / 3;
         
         x = margin + col * (wh + margin);
         y = margin + row * (wh + margin);
         
-        btn.frame = CGRectMake(x, y, wh, wh);
+        iv.frame = CGRectMake(x, y, wh, wh);
     }
     
 }

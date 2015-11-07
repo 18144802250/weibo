@@ -10,6 +10,6 @@
 
 @interface WRHomeViewController : UITableViewController
 
-
+- (void)refreshHome;
 
 @end

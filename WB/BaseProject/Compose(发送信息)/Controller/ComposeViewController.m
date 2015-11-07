@@ -10,6 +10,7 @@
 #import "WRTextView.h"
 #import "WRComposeToolBar.h"
 #import "WRComposePhotes.h"
+#import "WRComposeTool.h"
 
 
 @interface ComposeViewController () <UITextViewDelegate,WRComposeToolBarDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
@@ -18,10 +19,19 @@
 @property (nonatomic, weak) WRComposeToolBar *toolBar;
 @property (nonatomic, weak) UIBarButtonItem *rightItem;
 @property (nonatomic, weak) WRComposePhotes *photos;
+
+@property (nonatomic, strong) NSMutableArray *pics;
+
 @end
 
 @implementation ComposeViewController
 
+- (NSMutableArray *)pics {
+    if(_pics == nil) {
+        _pics = [[NSMutableArray alloc] init];
+    }
+    return _pics;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -67,9 +77,46 @@
     [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
     [btn sizeToFit];
+
+#pragma mark -发送图片或文字
     
     [btn bk_addEventHandler:^(id sender) {
         
+        if (self.pics.count) {
+            
+            NSString *status = _textView.text.length?_textView.text:@"分享图片~";
+            
+            UIImage *image = self.pics.firstObject;
+            
+            [WRComposeTool composeWithStatus:status pic:image completionHandle:^(NSError *error) {
+                
+                if (error) {
+                    [SVProgressHUD showErrorWithStatus:@"分享失败"];
+                } else {
+                    [SVProgressHUD showSuccessWithStatus:@"分享成功"];
+                    
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                    
+                }
+            }];
+        } else {
+            
+            [WRComposeTool composeWithStatus:_textView.text completionHandle:^(NSError *error) {
+                
+                if (error) {
+                    [SVProgressHUD showErrorWithStatus:@"分享失败"];
+                } else {
+                    [SVProgressHUD showSuccessWithStatus:@"分享成功"];
+                    
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                    
+                }
+                
+            }];
+            
+        }
+        
+        _rightItem.enabled = NO;
         
         
     } forControlEvents:UIControlEventTouchUpInside];
@@ -129,7 +176,11 @@
     
     _photos.photo = image;
     
+    [self.pics addObject:image];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    _rightItem.enabled = YES;
 }
 
 #pragma mark -设置TextView
@@ -200,5 +251,7 @@
         _rightItem.enabled = NO;
     }
 }
+
+
 
 @end

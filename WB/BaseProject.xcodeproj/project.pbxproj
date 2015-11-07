@@ -74,6 +74,7 @@
 		C34853E81BE78BB700C5C3B9 /* new_feature_finish_button_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C34853DC1BE78BB700C5C3B9 /* new_feature_finish_button_highlighted@2x.png */; };
 		C34853E91BE78BB700C5C3B9 /* new_feature_share_false@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C34853DD1BE78BB700C5C3B9 /* new_feature_share_false@2x.png */; };
 		C34853EA1BE78BB700C5C3B9 /* new_feature_share_true@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C34853DE1BE78BB700C5C3B9 /* new_feature_share_true@2x.png */; };
+		C3B5DFA01BED8D2000055843 /* WRUpdateParams.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B5DF9F1BED8D2000055843 /* WRUpdateParams.m */; };
 		C3B6D8C21BE99D4A00330312 /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B6D8B41BE99D4A00330312 /* MJPhoto.m */; };
 		C3B6D8C31BE99D4A00330312 /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C3B6D8B51BE99D4A00330312 /* MJPhotoBrowser.bundle */; };
 		C3B6D8C41BE99D4A00330312 /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = C3B6D8B71BE99D4A00330312 /* MJPhotoBrowser.m */; };
@@ -206,6 +207,8 @@
 		C34853DC1BE78BB700C5C3B9 /* new_feature_finish_button_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_feature_finish_button_highlighted@2x.png"; sourceTree = "<group>"; };
 		C34853DD1BE78BB700C5C3B9 /* new_feature_share_false@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_feature_share_false@2x.png"; sourceTree = "<group>"; };
 		C34853DE1BE78BB700C5C3B9 /* new_feature_share_true@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new_feature_share_true@2x.png"; sourceTree = "<group>"; };
+		C3B5DF9E1BED8D2000055843 /* WRUpdateParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRUpdateParams.h; sourceTree = "<group>"; };
+		C3B5DF9F1BED8D2000055843 /* WRUpdateParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRUpdateParams.m; sourceTree = "<group>"; };
 		C3B6D8B31BE99D4A00330312 /* MJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhoto.h; sourceTree = "<group>"; };
 		C3B6D8B41BE99D4A00330312 /* MJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhoto.m; sourceTree = "<group>"; };
 		C3B6D8B51BE99D4A00330312 /* MJPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJPhotoBrowser.bundle; sourceTree = "<group>"; };
@@ -860,6 +863,15 @@
 			path = Newfeature;
 			sourceTree = "<group>";
 		};
+		C3B5DF9D1BED8D0A00055843 /* Params */ = {
+			isa = PBXGroup;
+			children = (
+				C3B5DF9E1BED8D2000055843 /* WRUpdateParams.h */,
+				C3B5DF9F1BED8D2000055843 /* WRUpdateParams.m */,
+			);
+			path = Params;
+			sourceTree = "<group>";
+		};
 		C3B6D8B11BE99D3F00330312 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -893,6 +905,7 @@
 		C3C4D0A41BECE18100CBFDA0 /* Compose */ = {
 			isa = PBXGroup;
 			children = (
+				C3B5DF9D1BED8D0A00055843 /* Params */,
 				C3C4D0A51BECE1A300CBFDA0 /* WRComposeTool.h */,
 				C3C4D0A61BECE1A300CBFDA0 /* WRComposeTool.m */,
 			);
@@ -1070,6 +1083,7 @@
 				C348536C1BE7617600C5C3B9 /* WRNewFeatureCell.m in Sources */,
 				C3B6D8C91BE99D4A00330312 /* SDWebImageManager+MJ.m in Sources */,
 				C3C4D0A01BECCA7200CBFDA0 /* WRComposeToolBar.m in Sources */,
+				C3B5DFA01BED8D2000055843 /* WRUpdateParams.m in Sources */,
 				C348535E1BE7617600C5C3B9 /* StatusNetManager.m in Sources */,
 				C34852FD1BE75CCD00C5C3B9 /* NSObject+Common (macPro).m in Sources */,
 				C3B6D8C71BE99D4A00330312 /* MJPhotoToolbar.m in Sources */,

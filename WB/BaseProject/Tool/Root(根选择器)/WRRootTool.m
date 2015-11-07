@@ -29,7 +29,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:currenVension forKey:WRVensionKey];
         
     } else {
-        WRTabBarController *tc = [[WRTabBarController alloc] init];
+        WRTabBarController *tc = [WRTabBarController new];
         
         window.rootViewController = tc;
         

@@ -10,4 +10,8 @@
 
 @interface WRTabBarController : UITabBarController
 
++ (WRTabBarController *)defaultWRTabBarController;
+
+@property (nonatomic, getter=isUnread) BOOL unread;
+
 @end

@@ -35,26 +35,33 @@
 {
     [StatusNetManager getStatusWithStatusParamType:_type typeID:_idStr completeHandle:^(StatusModel *model, NSError *error) {
         
+        [self.frameArr removeAllObjects];
+        
         if ([_idStr isEqualToString:[self.dataArr.firstObject idstr]]) {
-            NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, model.statuses.count)];
             _count = model.statuses.count;
+            NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, _count)];
+            
             [self.dataArr insertObjects:model.statuses atIndexes:indexSet];
         } else {
             [self.dataArr addObjectsFromArray:model.statuses];
         }
-       
+        
+
+        
         for (StatusStatusesModel *statuses in self.dataArr) {
             WRStatusFrame *statusframe = [WRStatusFrame new];
             statusframe.statuses = statuses;
             [self.frameArr addObject:statusframe];
         }
         
+   
         complete(error);
     }];
 }
 
 - (void)getNewWithCompleteHandle:(void (^)(NSError *))complete
 {
+    
     _type = StatusParamTypeNew;
     
     if (self.dataArr.count) {

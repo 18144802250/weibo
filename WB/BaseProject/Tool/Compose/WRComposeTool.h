@@ -12,6 +12,8 @@
 
 @interface WRComposeTool : BaseNetManager
 
-+ (void)postComposeWithInfo:(NSArray*)info completionHandle:(void(^)(id resposeObj,NSError *error))completion;
++ (void)composeWithStatus:(NSString*)status completionHandle:(void(^) (NSError *error))completion;
+
++ (void)composeWithStatus:(NSString*)status pic:(UIImage*)pic completionHandle:(void(^)(NSError *error))completion;
 
 @end

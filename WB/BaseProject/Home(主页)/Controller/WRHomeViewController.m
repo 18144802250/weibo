@@ -223,5 +223,10 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - 刷新主页
+- (void)refreshHome
+{
+    [self.tableView.header beginRefreshing];
+}
 
 @end
