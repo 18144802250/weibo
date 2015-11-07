@@ -13,8 +13,12 @@
 @protocol WRTabBarDelegate <NSObject>
 
 @optional
+//点击tabbar按钮
+- (void)tabBar:(WRTabBar *)tabBar didClickButton:(NSInteger)index;
 
-- (void)tabBar:(WRTabBar*)tabBar didClickButton:(NSInteger)index;
+/** 点击发送按钮 */
+- (void)didClickCenterButton:(UIButton *)button;
+
 
 @end
 

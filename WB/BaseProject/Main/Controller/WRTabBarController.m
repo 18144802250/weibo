@@ -13,6 +13,7 @@
 #import "WRMessageViewController.h"
 #import "WRDiscoverViewController.h"
 #import "WRProfileViewController.h"
+#import "ComposeViewController.h"
 
 #import "WRTabBar.h"
 #import "WRUserTool.h"
@@ -79,10 +80,21 @@
 }
 
 #pragma mark - WRTabBar代理方法
--(void)tabBar:(WRTabBar *)tabBar didClickButton:(NSInteger)index
+- (void)tabBar:(WRTabBar *)tabBar didClickButton:(NSInteger)index
 {
     self.selectedIndex = index;
 }
+
+- (void)didClickCenterButton:(UIButton *)button
+{
+    ComposeViewController *vc = [ComposeViewController new];
+    
+    WRNavigationController *navi = [[WRNavigationController alloc] initWithRootViewController:vc];
+    
+    [self presentViewController:navi animated:YES completion:nil];
+    
+}
+
 
 - (void) addChildViewC
 {

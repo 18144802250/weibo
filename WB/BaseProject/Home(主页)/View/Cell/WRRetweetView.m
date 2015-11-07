@@ -30,7 +30,7 @@
     if (self = [super initWithFrame:frame]) {
         
         [self setupAllChildView];
-        
+        self.userInteractionEnabled = YES;
         self.image = [UIImage imageWithStretchableName:@"timeline_retweet_background"];
     
     }
@@ -55,7 +55,6 @@
     
     // 配图
     WRPhotosView *photosView = [[WRPhotosView alloc] init];
-    photosView.backgroundColor = [UIColor redColor];
     [self addSubview:photosView];
     _photosView = photosView;
 }
@@ -78,7 +77,7 @@
     // 正文
     _textView.text = retStatus.text;
     
-//    _photosView.photos = retStatus.pic_urls;
+    _photosView.photosUrl = retStatus.pic_urls;
 }
 
 - (void)setUpFrame

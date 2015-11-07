@@ -11,6 +11,6 @@
 @class StatusPicUrlsModel;
 @interface WRPhotoView : UIImageView
 
-@property (nonatomic, strong) NSString *photo;
+@property (nonatomic, strong) StatusPicUrlsModel *photo;
 
 @end

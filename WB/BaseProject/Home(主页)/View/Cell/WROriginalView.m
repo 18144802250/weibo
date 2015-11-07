@@ -87,8 +87,8 @@
     _textView = textView;
     
 //     配图
+ 
     WRPhotosView *photosView = [[WRPhotosView alloc] init];
-    photosView.backgroundColor = [UIColor purpleColor];
     [self addSubview:photosView];
     _photosView = photosView;
     
@@ -126,8 +126,11 @@
     _sourceView.text = status.source;
     // 正文
     _textView.text = status.text;
-    
+    // 配图
     _photosView.photosUrl = status.pic_urls;
+    
+    
+    
 }
 
 - (void)setUpFrame

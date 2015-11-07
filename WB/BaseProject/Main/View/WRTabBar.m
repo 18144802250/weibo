@@ -73,6 +73,14 @@
         
         [btn sizeToFit];
         
+        [btn bk_addEventHandler:^(id sender) {
+
+            if([self.delegate respondsToSelector:@selector(didClickCenterButton:)]) {
+                [self.delegate didClickCenterButton:btn];
+            }
+            
+        } forControlEvents:UIControlEventTouchUpInside];
+        
         _button = btn;
         
         [self addSubview:_button];

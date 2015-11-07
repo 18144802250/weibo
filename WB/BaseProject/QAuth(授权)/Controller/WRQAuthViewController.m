@@ -40,20 +40,23 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    progressHUD.mode = MBProgressHUDModeText;
-    progressHUD.labelText = @"正在加载";
-    _progressHUD = progressHUD;
+//    MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    progressHUD.mode = MBProgressHUDModeText;
+//    progressHUD.labelText = @"正在加载";
+//    _progressHUD = progressHUD;
+    [SVProgressHUD showInfoWithStatus:@"正在加载"];
+  
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [_progressHUD hide:YES];
+//    [_progressHUD hide:YES];
+    [SVProgressHUD dismiss];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    [_progressHUD hide:YES];
+    [SVProgressHUD dismiss];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
